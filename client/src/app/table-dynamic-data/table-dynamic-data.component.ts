@@ -32,6 +32,9 @@ export class TableDynamicDataComponent implements OnInit {
     });
   }
   delete(id : any){
-    
+    console.log(id)
+    this.http.delete(id).subscribe((response)=>{
+      console.log(response)
+    })
   }
 }

@@ -13,6 +13,6 @@ export class SharedService {
     return this.http.get(this.url+"data1/all")
   }
   delete(id:any){
-    return this.http.delete(this.url+"data1/delete"+id)
+    return this.http.delete(this.url+"data1/delete/"+id)
   }
 }
