@@ -11,6 +11,7 @@ import { LinechartsComponent } from './linecharts/linecharts.component';
 import { PiechartComponent } from './piechart/piechart.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { TableDynamicDataComponent } from './table-dynamic-data/table-dynamic-data.component';
+import { NavbarComponent } from './navbar/navbar.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,8 @@ import { TableDynamicDataComponent } from './table-dynamic-data/table-dynamic-da
     LinechartsComponent,
     PiechartComponent,
     BarchartComponent,
-    TableDynamicDataComponent, 
+    TableDynamicDataComponent,
+    NavbarComponent, 
     
   ],
   imports: [

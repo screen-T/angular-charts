@@ -31,4 +31,7 @@ export class TableDynamicDataComponent implements OnInit {
       }
     });
   }
+  delete(id : any){
+    
+  }
 }

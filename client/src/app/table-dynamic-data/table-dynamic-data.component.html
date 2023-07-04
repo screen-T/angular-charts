@@ -6,6 +6,9 @@
         <th>
             axe X
         </th>
+        <th>
+          
+        </th>
         <tbody *ngFor="let item of dataContent">
             <tr>
                 <td>
@@ -14,7 +17,11 @@
                 <td>
                     {{item.labels}}
                 </td>
+                <td>
+                   <button class="btn btn-danger" (click)="delete(item.id)">  Delete</button>
+                </td>
             </tr>
+
         </tbody>
     </table>
 </div>
