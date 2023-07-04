@@ -6,14 +6,29 @@ import { SharedService } from '../shared.service';
   templateUrl: './table-dynamic-data.component.html',
   styleUrls: ['./table-dynamic-data.component.css']
 })
-export class TableDynamicDataComponent implements OnInit{
-  constructor(private http : SharedService){}
-  dataContent : any=""
-  ngOnInit(): void {
+export class TableDynamicDataComponent implements OnInit {
+  dataContent: any = '';
+  oldDataContent: any = '';
 
-    this.http.findall().subscribe((response)=>{
-      console.log("data of the table :",response)
-      this.dataContent=response
-    })
+  constructor(private http: SharedService) {}
+
+  ngOnInit(): void {
+    this.getData();
+    setInterval(() => {
+      this.getData();
+    }, 1000);
+  }
+
+  getData(): void {
+    this.http.findall().subscribe((response: any) => {
+      console.log('data of the table:', response);
+      const newDataContent = JSON.stringify(response);
+
+      // Compare the new data with the old data
+      if (newDataContent !== this.oldDataContent) {
+        this.dataContent = response;
+        this.oldDataContent = newDataContent;
+      }
+    });
   }
 }

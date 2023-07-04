@@ -24,8 +24,6 @@ export class BarchartComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
-
-    // Polling interval (every 5 seconds)
     setInterval(() => {
       this.getData();
     }, 1000);
