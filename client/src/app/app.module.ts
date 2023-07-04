@@ -12,6 +12,7 @@ import { PiechartComponent } from './piechart/piechart.component';
 import { BarchartComponent } from './barchart/barchart.component';
 import { TableDynamicDataComponent } from './table-dynamic-data/table-dynamic-data.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { AddformComponent } from './addform/addform.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     PiechartComponent,
     BarchartComponent,
     TableDynamicDataComponent,
-    NavbarComponent, 
+    NavbarComponent,
+    AddformComponent, 
     
   ],
   imports: [
