@@ -10,13 +10,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LinechartsComponent } from './linecharts/linecharts.component';
 import { PiechartComponent } from './piechart/piechart.component';
 import { BarchartComponent } from './barchart/barchart.component';
+import { TableDynamicDataComponent } from './table-dynamic-data/table-dynamic-data.component';
 @NgModule({
   declarations: [
     AppComponent,
     MounthsComponent,
     LinechartsComponent,
     PiechartComponent,
-    BarchartComponent, 
+    BarchartComponent,
+    TableDynamicDataComponent, 
     
   ],
   imports: [
