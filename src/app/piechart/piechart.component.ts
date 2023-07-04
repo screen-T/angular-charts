@@ -9,7 +9,7 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class PiechartComponent {
   public data: ChartData<'pie', number[], string | string[]> = {
-    labels: [ [ 'Download', 'Sales' ], [ 'In', 'Store', 'Sales' ], 'Mail Sales' ],
+    labels: [ "data 1" , " data 2" ," data 3"],
     datasets: [ {
       data: [ 300, 500, 100 ]
     } ]
