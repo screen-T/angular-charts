@@ -15,4 +15,7 @@ export class SharedService {
   delete(id:any){
     return this.http.delete(this.url+"data1/delete/"+id)
   }
+  findalldata2(){
+    return this.http.get(this.url+"data2/all")
+  }
 }
