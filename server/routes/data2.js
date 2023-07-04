@@ -1,13 +1,13 @@
-const Data1= require ("../models/data1")
+const Data2= require ("../models/data2")
 const express= require("express")
 const { response } = require("express");
-const data1 = require("../models/data1");
+
 const router = express.Router() ;
 router.post("/add" , async (req  , resp)=>{
     try {
         console.log("adding data")
     data = req.body
-    var data = new Data1(data) 
+    var data = new Data2(data) 
     var status = {
         message : "data inserted ",
         info : await data.save()  
@@ -23,7 +23,7 @@ catch (error){
 router.get("/all", async (req , resp)=>{
     try {
         console.log("find data")
-        var data= await Data1.find()
+        var data= await Data2.find()
         resp.status(200).send(data)
     }
     catch (error)
@@ -39,7 +39,7 @@ router.delete("/delete/:id" , async (req ,resp)=>{
     try{
         var id=req.params.id ;
         console.log("deleting id : ",id)
-        result = await Data1.deleteOne({_id:id})
+        result = await Data2.deleteOne({_id:id})
         resp.status(200).send(result)
     }catch(error){
         resp.status(400).send(error)
