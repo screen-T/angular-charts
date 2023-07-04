@@ -1,39 +1,62 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType } from 'chart.js';
 import { SharedService } from '../shared.service';
-import { BaseChartDirective } from 'ng2-charts';
+
 @Component({
   selector: 'app-barchart',
   templateUrl: './barchart.component.html',
   styleUrls: ['./barchart.component.css']
 })
 export class BarchartComponent implements OnInit {
-  res: any = "";
-  dataSets: any[] = [];
-  labels: any[] = [];
-  type: ChartType = "bar";
-  options: any = {
-    responsive: true
-  };
   data: any[] = [];
+  labels: any[] = [];
+  type: ChartType = 'bar';
+  options: any = {
+    responsive: true,
+    animation: {
+      duration: 0 // Set duration to 0 to disable animation
+    }
+  };
+
+  private previousData: any[] = [];
 
   constructor(private http: SharedService) { }
 
   ngOnInit() {
+    this.getData();
+
+    // Polling interval (every 5 seconds)
+    setInterval(() => {
+      this.getData();
+    }, 1000);
+  }
+
+  getData() {
     this.http.findall().subscribe((response: any) => {
-      this.res = response;
-      console.log(response[0].data);
-      for (let item of response) {
-        console.log(item.data);
-        this.dataSets.push(item.data);
-        this.labels.push(item.labels);
+      const newData = response.map((item: any) => item.data);
+      const newLabels = response.map((item: any) => item.labels);
+
+      if (!this.areArraysEqual(newData, this.previousData) || !this.areArraysEqual(newLabels, this.labels)) {
+        this.data = [
+          { data: newData, label: 'data 1', backgroundColor: 'rgb(102, 93, 162)' }
+        ];
+        this.labels = newLabels;
+        this.previousData = newData;
       }
-      console.log("dataSets",this.dataSets)
-      this.data = [
-        { data: this.dataSets, label: "data 1", backgroundColor: "rgb(102, 93, 162)" }
-      ];
-      console.log(this.labels)
-      console.log(this.data)
     });
+  }
+
+  areArraysEqual(array1: any[], array2: any[]): boolean {
+    if (array1.length !== array2.length) {
+      return false;
+    }
+
+    for (let i = 0; i < array1.length; i++) {
+      if (array1[i] !== array2[i]) {
+        return false;
+      }
+    }
+
+    return true;
   }
 }
