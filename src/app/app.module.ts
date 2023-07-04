@@ -8,12 +8,14 @@ import { NgChartsModule } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
 import { LinechartsComponent } from './linecharts/linecharts.component';
 import { PiechartComponent } from './piechart/piechart.component';
+import { BarchartComponent } from './barchart/barchart.component';
 @NgModule({
   declarations: [
     AppComponent,
     MounthsComponent,
     LinechartsComponent,
-    PiechartComponent
+    PiechartComponent,
+    BarchartComponent
   ],
   imports: [
     BrowserModule,
