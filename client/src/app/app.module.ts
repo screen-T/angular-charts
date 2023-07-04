@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { MounthsComponent } from './mounths/mounths.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LinechartsComponent } from './linecharts/linecharts.component';
 import { PiechartComponent } from './piechart/piechart.component';
 import { BarchartComponent } from './barchart/barchart.component';
@@ -15,12 +16,15 @@ import { BarchartComponent } from './barchart/barchart.component';
     MounthsComponent,
     LinechartsComponent,
     PiechartComponent,
-    BarchartComponent
+    BarchartComponent, 
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgChartsModule
+    NgChartsModule, 
+    HttpClientModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
